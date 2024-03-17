@@ -1,7 +1,7 @@
 export interface CustomerPayload {
-  email: string
-  _id: string
-  phone: string 
+  email: string;
+  _id: string;
+  phone: string;
 }
 
-export type AuthPayload = CustomerPayload
+export type AuthPayload = CustomerPayload;

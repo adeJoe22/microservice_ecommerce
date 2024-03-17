@@ -1,36 +1,49 @@
-import { Customer, ICustomerRepository, Address } from "../entity";
+import { Customer, ICustomerRepository, Address } from '../entity';
 
-
-
-export function buildRegisterCustomer(customerRepository: ICustomerRepository){
-  return async function registerCustomer(userData: Customer){
-    return await customerRepository.CreateCustomer(userData)
-  }
+export function buildRegisterCustomer(
+  customerRepository: ICustomerRepository
+) {
+  return async function registerCustomer(userData: Customer) {
+    return await customerRepository.CreateCustomer(userData);
+  };
 }
 
-export function buildGetCustomers(customerRepository: ICustomerRepository){
-  return async function getAllCustomers(): Promise<Customer[]>{
-    return await customerRepository.FindCustomers()
-  }
+export function buildGetCustomers(
+  customerRepository: ICustomerRepository
+) {
+  return async function getAllCustomers(): Promise<Customer[]> {
+    return await customerRepository.FindCustomers();
+  };
 }
-export function buildGetCustomer(customerRepository: ICustomerRepository){
-  return async function getACustomer(customerID: string): Promise<Customer>{
-    return await customerRepository.FindCustomerById(customerID)
-  }
+export function buildGetCustomer(customerRepository: ICustomerRepository) {
+  return async function getACustomer(
+    customerID: string
+  ): Promise<Customer> {
+    return await customerRepository.FindCustomerById(customerID);
+  };
 }
+// export function buildUpdateCustomer(
+//   customerRepository: ICustomerRepository
+// ) {
+//   return async function updateCustomer(
+//     customerID: string,
+//     input: Customer
+//   ): Promise<Customer> {
+//     return await customerRepository.UpdateCustomerById(customerID, input);
+//   };
+// }
 
-export function buildCustomerProfile(customerRepository: ICustomerRepository){
+export function buildCustomerProfile(
+  customerRepository: ICustomerRepository
+) {
   return async (email: string): Promise<Customer> => {
-    const profile = await customerRepository.FindCustomerByEmail(email)
-   return profile
-  }
+    const profile = await customerRepository.FindCustomerByEmail(email);
+    return profile;
+  };
 }
 
-export function buildAddAddress(customerRepository: ICustomerRepository){
-  return async (input: Address)=> {
-    return await customerRepository.CreateAddress(input)
-   
-  }
+export function buildAddAddress(customerRepository: ICustomerRepository) {
+  return async (input: Address) => {
+    return await customerRepository.CreateAddress(input);
+  };
 }
-
- 
